@@ -47,3 +47,4 @@ Temporary Items
 .apdisk
 .gradle
 build/
+.idea/workspace.xml
