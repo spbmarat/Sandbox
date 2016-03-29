@@ -1,60 +1,19 @@
-package ru.stqa.fp.addressbook.ApplicationManager;
+package ru.stqa.fp.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.fp.addressbook.model.ContactData;
 
-import java.util.concurrent.TimeUnit;
-
 /**
- * Created by marat on 15.03.16.
+ * Created by marat on 29.03.16.
  */
-public class ApplicationManager {
+public class ContactHelper {
+    private FirefoxDriver wd;
 
-    FirefoxDriver wd;
+    public ContactHelper(FirefoxDriver wd) {
+        this.wd = wd;
 
-    private GroupHelper groupHelper;
-
-    public static boolean isAlertPresent(FirefoxDriver wd) {
-        try {
-            wd.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
     }
-
-    public void init() {
-        wd = new FirefoxDriver();
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        wd.get("http://localhost/addressbook/index.php");
-        groupHelper = new GroupHelper(wd);
-        login("admin", "secret");
-    }
-
-    public void login(String username, String password) {
-        wd.findElement(By.name("user")).click();
-        wd.findElement(By.name("user")).clear();
-        wd.findElement(By.name("user")).sendKeys(username);
-        wd.findElement(By.name("pass")).click();
-        wd.findElement(By.name("pass")).clear();
-        wd.findElement(By.name("pass")).sendKeys(password);
-        wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-    }
-
-    public void gotoGroupPage() {
-        wd.findElement(By.linkText("groups")).click();
-    }
-
-    public void logout() {
-        wd.findElement(By.linkText("Logout")).click();
-    }
-
-    public void stop() {
-        wd.quit();
-    }
-
     public void submitContactCreating() {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
@@ -86,11 +45,5 @@ public class ApplicationManager {
         wd.findElement(By.name("home")).sendKeys(contactData.getPhonehome());
     }
 
-    public void gotoCreateNewContactPage() {
-        wd.findElement(By.linkText("add new")).click();
-    }
-
-    public GroupHelper getGroupHelper() {
-        return groupHelper;
-    }
 }
+
