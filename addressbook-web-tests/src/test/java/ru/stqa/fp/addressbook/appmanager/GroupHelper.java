@@ -1,7 +1,7 @@
 package ru.stqa.fp.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 import ru.stqa.fp.addressbook.model.GroupData;
 
 /**
@@ -9,7 +9,7 @@ import ru.stqa.fp.addressbook.model.GroupData;
  */
 public class GroupHelper extends HelperBase {
 
-    public GroupHelper(FirefoxDriver wd) {
+    public GroupHelper(WebDriver wd) {
         super(wd);
 
     }

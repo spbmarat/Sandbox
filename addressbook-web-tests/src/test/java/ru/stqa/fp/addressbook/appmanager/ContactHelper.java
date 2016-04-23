@@ -1,14 +1,14 @@
 package ru.stqa.fp.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 import ru.stqa.fp.addressbook.model.ContactData;
 
 /**
  * Created by marat on 29.03.16.
  */
 public class ContactHelper extends HelperBase {
-    public ContactHelper(FirefoxDriver wd) {
+    public ContactHelper(WebDriver wd) {
         super(wd);
 
     }
