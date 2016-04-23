@@ -31,4 +31,7 @@ public class HelperBase {
             return false;
         }
     }
+    public void acceptModalDialog() {
+        wd.switchTo().alert().accept();
+    }
 }
