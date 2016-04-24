@@ -11,7 +11,6 @@ public class GroupHelper extends HelperBase {
 
     public GroupHelper(WebDriver wd) {
         super(wd);
-
     }
 
     public void submitGroupCreation() {
@@ -48,4 +47,14 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
+    public void createGroup(GroupData group) {
+        initGroupCreation();
+        fillGroupForm(group);
+        submitGroupCreation();
+        returnToGroupPage();
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
+    }
 }
