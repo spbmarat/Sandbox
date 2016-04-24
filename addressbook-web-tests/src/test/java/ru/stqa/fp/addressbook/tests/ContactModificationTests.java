@@ -6,11 +6,12 @@ import ru.stqa.fp.addressbook.model.ContactData;
 /**
  * Created by marat on 23.04.16.
  */
-public class UserModificationTests extends TestBase {
+public class ContactModificationTests extends TestBase {
     @Test
     public void testUserModification() {
+        app.getNavigationHelper().gotoHomePage();
         app.getContactHelper().initContactModification();
-        app.getContactHelper().fillContactCredentials(new ContactData("TestM", "Sr", "User", "supertester", "The best tester in the world", "Apple", "Infinite Loop", "+17855463689"));
+        app.getContactHelper().fillContactCredentials(new ContactData("TestM", "Sr", "User", "supertester", "The best tester in the world", "Apple", "Infinite Loop", "+17855463689", null), false);
         app.getContactHelper().submitContactModification();
     }
 }
