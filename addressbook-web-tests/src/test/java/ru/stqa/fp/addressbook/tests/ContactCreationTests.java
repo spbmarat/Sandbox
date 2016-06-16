@@ -5,11 +5,11 @@ import ru.stqa.fp.addressbook.model.ContactData;
 
 public class ContactCreationTests extends TestBase {
 
-    @Test
+    @Test(enabled = false)
     public void testUserCreation() {
         app.getNavigationHelper().gotoHomePage();
         app.getNavigationHelper().gotoCreateNewContactPage();
-        app.getContactHelper().createContact(new ContactData("Test", "Sr", "User", "supertester", "The best tester in the world", "Apple", "Infinite Loop", "+17855463689", "test1"), true);
+        app.getContactHelper().createContact(new ContactData("Test", "Sr", "User", "supertester", "The best tester in the world", "Apple", "Infinite Loop", "+17855463689", "test1"));
     }
 
 }
